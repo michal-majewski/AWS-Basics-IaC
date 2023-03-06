@@ -1,0 +1,1 @@
+variable "aws_email_alert" {}
