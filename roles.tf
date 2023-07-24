@@ -6,6 +6,10 @@ resource "aws_iam_role" "FullAccessRoleEC2" {
   tags = {
     tag-key = var.mentoring_program_prefix
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_iam_role" "FullAccessRoleS3" {
@@ -16,6 +20,10 @@ resource "aws_iam_role" "FullAccessRoleS3" {
   tags = {
     tag-key = var.mentoring_program_prefix
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_iam_role" "ReadAccessRoleS3" {
@@ -25,5 +33,9 @@ resource "aws_iam_role" "ReadAccessRoleS3" {
 
   tags = {
     tag-key = var.mentoring_program_prefix
+  }
+
+  lifecycle {
+    prevent_destroy = true
   }
 }

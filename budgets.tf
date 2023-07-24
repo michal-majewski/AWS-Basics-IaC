@@ -30,4 +30,8 @@ resource "aws_budgets_budget" "monthly-budget" {
     notification_type          = "FORECASTED"
     subscriber_email_addresses = [var.aws_email_alert]
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
