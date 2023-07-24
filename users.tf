@@ -5,10 +5,6 @@ resource "aws_iam_user" "CloudX_FullEC2" {
   tags = {
     tag-key = var.mentoring_program_prefix
   }
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_iam_user" "CloudX_FullS3" {
@@ -18,10 +14,6 @@ resource "aws_iam_user" "CloudX_FullS3" {
   tags = {
     tag-key = var.mentoring_program_prefix
   }
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_iam_user" "CloudX_ReadS3" {
@@ -30,9 +22,5 @@ resource "aws_iam_user" "CloudX_ReadS3" {
 
   tags = {
     tag-key = var.mentoring_program_prefix
-  }
-
-  lifecycle {
-    prevent_destroy = true
   }
 }

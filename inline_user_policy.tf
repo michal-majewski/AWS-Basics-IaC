@@ -53,8 +53,4 @@ resource "aws_iam_user_policy" "WriteAccessForFullEC2" {
       }
     ]
   })
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }

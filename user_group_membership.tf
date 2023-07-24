@@ -4,10 +4,6 @@ resource "aws_iam_user_group_membership" "Full_EC2" {
   groups = [
     aws_iam_group.FullAccessGroupEC2.name
   ]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_iam_user_group_membership" "Full_S3" {
@@ -16,10 +12,6 @@ resource "aws_iam_user_group_membership" "Full_S3" {
   groups = [
     aws_iam_group.FullAccessGroupS3.name
   ]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_iam_user_group_membership" "Read_S3" {
@@ -28,8 +20,4 @@ resource "aws_iam_user_group_membership" "Read_S3" {
   groups = [
     aws_iam_group.ReadAccessGroupS3.name
   ]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
