@@ -26,6 +26,8 @@ data "aws_iam_policy_document" "EC2_Assume_Role_Policy" {
   statement {
     actions = ["sts:AssumeRole"]
 
+    effect = "Allow"
+
     principals {
       type        = "Service"
       identifiers = ["ec2.amazonaws.com"]

@@ -9,4 +9,6 @@ terraform {
   }
 }
 
-provider "aws" {}
+provider "aws" {
+  alias = "my-provider"
+}
