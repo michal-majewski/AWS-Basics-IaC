@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "FullAccessS3" {
 
 data "aws_iam_policy_document" "ReadAccessS3" {
   statement {
-    actions   = ["s3:Get*", "s3:List*"]
+    actions   = ["s3:Get*", "s3:List*", "iam:PassRole"]
     resources = ["*"]
     effect    = "Allow"
   }

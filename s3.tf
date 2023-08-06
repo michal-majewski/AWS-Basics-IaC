@@ -78,7 +78,7 @@ data "aws_iam_policy_document" "S3ForMyIp" {
     condition {
       test     = "IpAddress"
       variable = "aws:SourceIp"
-      values   = ["${var.my_ip}"]
+      values   = ["${var.my_ip}", "${aws_instance.load-balanced-web-app.public_ip}"]
     }
   }
 
@@ -94,7 +94,7 @@ data "aws_iam_policy_document" "S3ForMyIp" {
     condition {
       test     = "NotIpAddress"
       variable = "aws:SourceIp"
-      values   = ["${var.my_ip}"]
+      values   = ["${var.my_ip}", "${aws_instance.load-balanced-web-app.public_ip}"]
     }
   }
 }
@@ -161,8 +161,7 @@ resource "aws_iam_role_policy_attachment" "replication" {
 }
 
 resource "aws_s3_bucket_replication_configuration" "replication" {
-  provider = aws.my-provider
-  # Must have bucket versioning enabled first
+  provider   = aws.my-provider
   depends_on = [aws_s3_bucket_versioning.S3BucketWebAppVersionEnabled]
 
   role   = aws_iam_role.replication.arn
